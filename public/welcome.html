@@ -44,6 +44,7 @@
   <script type="text/javascript" src="/dpd.js"></script>
   <script type="text/javascript">
     dpd.users.me(function(user) {
+
       //Creates new student in database
       $('form').submit(function() {
         var studentName = $('#studentName').val();
@@ -56,33 +57,49 @@
       dpd.students.get(function (result, err) {
         if(err) return console.log(err);
         var students = result;
+
         for(i = 0; i < students.length; i++) {
           $(students[i]).each(function(){
+            var litmoschpcom = students[i].litmoschpcom;
+            console.log(litmoschpcom)
+            var total = students[i].litmoschpcom + students[i].classatt + students[i].hackatt + students[i].officehouratt + students[i].bonusprojcom + students[i].portfoliocom + students[i].portfolioprojscom + students[i].headfirsthtml + students[i].headfirstjavascript + students[i].resume + students[i].coverletter + students[i].linkedin + students[i].phoneinterview + students[i].inpersoninterview + students[i].hired + students[i].extrapoints
             $("#tablebody").append("<tr id='studentRow" + [i] +"'></tr>")
             $("#studentRow" + [i]).append(
               "<td>" + students[i].name + "</td>" + 
-              "<td>" + students[i].litmoschpcom + "</td>" + 
-              "<td>" + students[i].classatt + "</td>" +
-              "<td>" + students[i].hackatt + "</td>" +
-              "<td>" + students[i].officehouratt + "</td>" +
-              "<td>" + students[i].bonusprojcom + "</td>" +
-              "<td>" + students[i].portfoliocom + "</td>" +
-              "<td>" + students[i].portfolioprojscom + "</td>" +
-              "<td>" + students[i].headfirsthtml + "</td>" +
-              "<td>" + students[i].headfirstjavascript + "</td>" +
-              "<td>" + students[i].resume + "</td>" +
-              "<td>" + students[i].coverletter + "</td>" +
-              "<td>" + students[i].linkedin + "</td>" +
-              "<td>" + students[i].phoneinterview + "</td>" +
-              "<td>" + students[i].inpersoninterview + "</td>" +
-              "<td>" + students[i].hired + "</td>" +
-              "<td>" + students[i].extrapoints + "</td>" +
-              "<td>" + students[i].totalpoints + "</td>" +
-              "<td>" + students[i].phoneinterview + "</td>"
+              "<td>" + students[i].litmoschpcom + "<br><button'>add</button></td>" + "</td>" + 
+              "<td>" + students[i].classatt + "<br><button>add</button></td>" + "</td>" +
+              "<td>" + students[i].hackatt + "<br><button>add</button></td>" + "</td>" +
+              "<td>" + students[i].officehouratt + "<br><button>add</button></td>" + "</td>" +
+              "<td>" + students[i].bonusprojcom + "<br><button>add</button></td>" + "</td>" +
+              "<td>" + students[i].portfoliocom + "<br><button>add</button></td>" + "</td>" +
+              "<td>" + students[i].portfolioprojscom + "<br><button>add</button></td>" + "</td>" +
+              "<td>" + students[i].headfirsthtml + "<br><button>add</button></td>" + "</td>" +
+              "<td>" + students[i].headfirstjavascript + "<br><button>add</button></td>" + "</td>" +
+              "<td>" + students[i].resume + "<br><button>add</button></td>" + "</td>" +
+              "<td>" + students[i].coverletter + "<br><button>add</button></td>" + "</td>" +
+              "<td>" + students[i].linkedin + "<br><button>add</button></td>" + "</td>" +
+              "<td>" + students[i].phoneinterview + "<br><button>add</button></td>" + "</td>" +
+              "<td>" + students[i].inpersoninterview + "<br><button>add</button></td>" + "</td>" +
+              "<td>" + students[i].hired + "<br><button>add</button></td>" + "</td>" +
+              "<td>" + students[i].extrapoints + "<br><button>add</button></td>" + "</td>" +
+              "<td>" + total + "</td>"
               )
-        });
+              $('button').on('click', function(){
+                  console.log(students[i].litmoschpcom)
+                  var litmoschpcom = students[i].litmoschpcom + 20
+                  dpd.students.put(id, {"litmoschpcom": litmoschpcom}, function(result, err) {
+                    if(err) return console.log(err);
+                  });
+              });
+              
+            })
         }
       });
+
+      
+
+      
+      
     });
 
     $('#logout-btn').click(function() {
