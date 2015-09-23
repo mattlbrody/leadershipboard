@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Deployd login form</title>
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+</head>
+<body>
+  <div class="container-fluid">
+    <h1></h1>
+    <form>
+      <label for="studentName">Student Name:</label>
+      <input type="text" id="studentName" />
+      <button type="submit" class="btn" id="newStudent">New Student</button>
+    </form>
+    <button class="btn" id="logout-btn">Logout</button>
+    <table class="table table-border">
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>litmos chapters complete</th>
+          <th>class attendence</th>
+          <th>hack attendence</th>
+          <th>office hour attendence</th>
+          <th>bonus projects complete</th>
+          <th>portfolio complete</th>
+          <th>portfolio projects completed</th>
+          <th>Headfirst HTML &amp; CSS complete</th>
+          <th>Headfirst Javscript Programming complete</th>
+          <th>Resume complete</th>
+          <th>Cover letter complete</th>
+          <th>linkedin profile 100%</th>
+          <th>phone interview</th>
+          <th>in-person interview</th>
+          <th>hired</th>
+          <th>extra points</th>
+          <th>total points</th>
+        </tr>
+      </thead>
+      <tbody id="tablebody"  class="text-center">
+      </tbody>
+    </table>
+  </div>
+  <script type="text/javascript" src="/js/lib/jquery.js"></script>
+  <script type="text/javascript" src="/dpd.js"></script>
+  <script type="text/javascript">
+    dpd.users.me(function(user) {
+      //Creates new student in database
+      $('form').submit(function() {
+        var studentName = $('#studentName').val();
+        dpd.students.post({"name":studentName,"litmoschpcom":0,"classatt":0,"hackatt":0,"officehouratt":0,"bonusprojcom":0,"portfoliocom":0,"portfolioprojscom":0,"headfirsthtml":0,"headfirstjavascript":0,"resume":0,"coverletter":0,"linkedin":0,"phoneinterview":0,"inpersoninterview":0,"hired":0,"extrapoints":0,"totalpoints":0}, function(result, err) {
+          if(err) return console.log(err);
+          console.log(result, result.id);
+        });
+      })
+
+      dpd.students.get(function (result, err) {
+        if(err) return console.log(err);
+        var students = result;
+        for(i = 0; i < students.length; i++) {
+          $(students[i]).each(function(){
+            $("#tablebody").append("<tr id='studentRow" + [i] +"'></tr>")
+            $("#studentRow" + [i]).append(
+              "<td>" + students[i].name + "</td>" + 
+              "<td>" + students[i].litmoschpcom + "</td>" + 
+              "<td>" + students[i].classatt + "</td>" +
+              "<td>" + students[i].hackatt + "</td>" +
+              "<td>" + students[i].officehouratt + "</td>" +
+              "<td>" + students[i].bonusprojcom + "</td>" +
+              "<td>" + students[i].portfoliocom + "</td>" +
+              "<td>" + students[i].portfolioprojscom + "</td>" +
+              "<td>" + students[i].headfirsthtml + "</td>" +
+              "<td>" + students[i].headfirstjavascript + "</td>" +
+              "<td>" + students[i].resume + "</td>" +
+              "<td>" + students[i].coverletter + "</td>" +
+              "<td>" + students[i].linkedin + "</td>" +
+              "<td>" + students[i].phoneinterview + "</td>" +
+              "<td>" + students[i].inpersoninterview + "</td>" +
+              "<td>" + students[i].hired + "</td>" +
+              "<td>" + students[i].extrapoints + "</td>" +
+              "<td>" + students[i].totalpoints + "</td>" +
+              "<td>" + students[i].phoneinterview + "</td>"
+              )
+        });
+        }
+      });
+    });
+
+    $('#logout-btn').click(function() {
+      dpd.users.logout(function(res, err) {
+        location.href = "/";
+      });
+    });
+  </script>
+</body>
+</html>

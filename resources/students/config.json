@@ -1,0 +1,149 @@
+{
+	"type": "Collection",
+	"properties": {
+		"name": {
+			"name": "name",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "name",
+			"order": 0
+		},
+		"litmoschpcom": {
+			"name": "litmoschpcom",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "litmoschpcom",
+			"order": 1
+		},
+		"classatt": {
+			"name": "classatt",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "classatt",
+			"order": 2
+		},
+		"hackatt": {
+			"name": "hackatt",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "hackatt",
+			"order": 3
+		},
+		"officehouratt": {
+			"name": "officehouratt",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "officehouratt",
+			"order": 4
+		},
+		"bonusprojcom": {
+			"name": "bonusprojcom",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "bonusprojcom",
+			"order": 5
+		},
+		"portfoliocom": {
+			"name": "portfoliocom",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "portfoliocom",
+			"order": 6
+		},
+		"portfolioprojscom": {
+			"name": "portfolioprojscom",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "portfolioprojscom",
+			"order": 7
+		},
+		"headfirsthtml": {
+			"name": "headfirsthtml",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "headfirsthtml",
+			"order": 8
+		},
+		"headfirstjavascript": {
+			"name": "headfirstjavascript",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "headfirstjavascript",
+			"order": 9
+		},
+		"resume": {
+			"name": "resume",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "resume",
+			"order": 10
+		},
+		"coverletter": {
+			"name": "coverletter",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "coverletter",
+			"order": 11
+		},
+		"linkedin": {
+			"name": "linkedin",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "linkedin",
+			"order": 12
+		},
+		"phoneinterview": {
+			"name": "phoneinterview",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "phoneinterview",
+			"order": 13
+		},
+		"inpersoninterview": {
+			"name": "inpersoninterview",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "inpersoninterview",
+			"order": 14
+		},
+		"hired": {
+			"name": "hired",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "hired",
+			"order": 15
+		},
+		"extrapoints": {
+			"name": "extrapoints",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "extrapoints",
+			"order": 16
+		},
+		"totalpoints": {
+			"name": "totalpoints",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "totalpoints",
+			"order": 17
+		}
+	}
+}
