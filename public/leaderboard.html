@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Deployd login form</title>
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Codify Academy Leadership Board</h1>
+
+    <!-- <button class="btn" id="logout-btn" style="float:right">Logout</button> -->
+    <br>
+
+    <div class="table-responsive">
+      <table id="myTable" class="table table-bordered table-condensed tablesorter">
+        <thead>
+          <tr>
+            <th>name</th>
+            <th>total points</th>
+          </tr>
+        </thead>
+        <tbody id="tablebody"  class="text-center">
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script type="text/javascript" src="/js/lib/jquery.js"></script>
+  <script type="text/javascript" src="/js/jquery.tablesorter.js"></script>
+  <script type="text/javascript" src="/dpd.js"></script>
+  <script type="text/javascript">
+
+      dpd.students.get(function (result, err) {
+        if(err) return console.log(err);
+        var students = result;
+        for(i = 0; i < students.length; i++) {
+          $(students[i]).each(function(){
+            var total = students[i].litmoschpcom + students[i].classatt + students[i].hackatt + students[i].officehouratt + students[i].bonusprojcom + students[i].portfoliocom + students[i].portfolioprojscom + students[i].headfirsthtml + students[i].headfirstjavascript + students[i].resume + students[i].coverletter + students[i].linkedin + students[i].phoneinterview + students[i].inpersoninterview + students[i].hired + students[i].extrapoints
+            $("#tablebody").append("<tr id='studentRow" + [i] +"'></tr>")
+            $("#studentRow" + [i]).append("<td>" + students[i].name + "</td>" + "<td>" + total + "</td>")
+          });
+        }
+      });
+
+    setTimeout(function() {
+      $('table').tablesorter({
+        sortList: [[1,1]],
+        })
+    }, 1000);
+
+  </script>
+</body>
+</html>
