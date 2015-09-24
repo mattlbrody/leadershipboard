@@ -1,3 +1,42 @@
+body {
+	color:black;
+}
+table {
+	border-collapse:collapse;
+}
+th {
+	font-size:30px;
+	background-color:black;
+	color:white;
+}
+tr {
+	font-size:20px;
+}
+
+h1 {
+	font-size:40px;
+	text-align:center;
+}
+
 .header {
 	cursor:pointer
 }
+.hiddenRow {
+    padding: 0 !important;
+}
+.collapse div{
+	width:83%;
+	float:left;
+	text-align: right;
+}
+
+.collapse div.pointswidth{
+	width:100%;
+	float:left;
+	text-align: left;
+}
+
+
+
+
+
