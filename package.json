@@ -11,9 +11,8 @@
     "url": "git+https://github.com/mattlbrody/leadershipboard.git"
   },
    "dependencies": {
-    "deployd": "*",
+    "deployd": "*"
   },
-
   "author": "",
   "license": "ISC",
   "bugs": {
