@@ -9,8 +9,8 @@ var server = deployd({
     port: 51833,
     name: 'heroku_fkl9kkw5',
     credentials: {
-      username: 'heroku_fkl9kkw5',
-      password: '652r7daqb3nmvcknqj7d3ln6ji'
+      username: process.env.mongolabname,
+      password: process.env.mongolabpassword
     }
   }
 });
