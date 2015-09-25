@@ -5,12 +5,12 @@ var server = deployd({
   port: process.env.PORT || 5000,
   env: 'production',
   db: {
-    host: 'my.production.mongo.host',
-    port: 27105,
-    name: 'my-db',
+    host: 'ds051833.mongolab.com',
+    port: 51833,
+    name: 'heroku_fkl9kkw5',
     credentials: {
-      username: 'username',
-      password: 'password'
+      username: 'heroku_fkl9kkw5',
+      password: '652r7daqb3nmvcknqj7d3ln6ji'
     }
   }
 });
