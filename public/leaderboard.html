@@ -37,31 +37,41 @@
         for(i = 0; i < students.length; i++) {
           $(students[i]).each(function(){
             var total = students[i].litmoschpcom + students[i].classatt + students[i].hackatt + students[i].officehouratt + students[i].bonusprojcom + students[i].portfoliocom + students[i].portfolioprojscom + students[i].headfirsthtml + students[i].headfirstjavascript + students[i].resume + students[i].coverletter + students[i].linkedin + students[i].phoneinterview + students[i].inpersoninterview + students[i].hired + students[i].extrapoints
-            $("#tablebody").append("<tr role='button' data-toggle='collapse' href='#collapseExample" + [i] + "' aria-expanded='false' aria-controls='collapseExample' id='studentRow" + [i] + "' data-target'#demo" + [i] + "></tr>")
-            $("#studentRow" + [i]).append("<td>" + students[i].name + "</td>" + "<td>" + total + "</td>") 
-            $("#tablebody").append(
-              "<tr class='collapse' id='collapseExample" + [i] + "'>" + 
-                "<td colspan='6'>" + 
-                  "<div id='demo" + [i] + "'>" + 
-                  "<div>" + "Litmos Chapters Complete (20 points each): " + students[i].litmoschpcom + "</div>" +
-                  "<div>" + "Class Attendance (10 points each class): " + students[i].classatt + "</div>" +
-              // "<div>" + "Hackathons Attended (10 points each event): " + "Hackathons Attended: " + students[i].hackatt + "</div>" + 
-              "<div>" + "Office Hours Attendance (10 points): " + students[i].officehouratt + "</div>" + 
-              "<div>" + "Bonus Projects Complete (10 points each): " + students[i].bonusprojcom + "</div>" + 
-              "<div>" + "Portfolio Complete (50 points): " + students[i].portfoliocom + "</div>" + 
-              "<div>" + "Profile Projects Complete (15 points each): " + students[i].portfolioprojscom + "</div>" + 
-              "<div>" + "Headfirst HTML & CSS Complete (50 points): " + students[i].headfirsthtml + "</div>" + 
-              "<div>" + "Head First Javascript Programming Complete (50 points): " + students[i].headfirstjavascript + "</div>" + 
-              "<div>" + "Resume Complete (10 points): " + students[i].resume + "</div>" + 
-              "<div>" + "Cover Letter Complete (20 points): " + students[i].coverletter + "</div>" + 
-              "<div>" + "LinkedIn Profile Complete (10 points): " + students[i].linkedin + "</div>" + 
-              "<div>" + "Phone Interviews (25 points each): " + students[i].phoneinterview + "</div>" + 
-              "<div>" + "In-Person Interviews (50 points each): " + students[i].inpersoninterview + "</div>" + 
-              "<div>" + "Hired (100 points): " + students[i].hired + "</div>" + 
-              "<div>" + "Extra Points (dished out by tacher): " + students[i].extrapoints + "</div>" + 
-                  "</div>" + 
-                "</td>" + 
-              "</tr>")
+            $("#tablebody").append("<tr role='button' data-toggle='modal' id='studentRow" + [i] + "' data-target='#myModal" + [i] + "'></tr>")
+            
+            $("#studentRow" + [i]).append("<td>" + students[i].name + "</td>" + "<td>" + total + "</td>")
+
+            $("#studentRow" + [i]).append(
+              "<div style='text-align:right' class='modal fade' data-backdrop='static' id='myModal" + [i] + "' role='dialog' aria-labelledby='myModalLabel" + [i] + "'>" +
+                "<div class='modal-dialog' role='document'>" +
+                  "<div class='modal-content'>" +
+                    "<div class='modal-header'>" +
+                      "<h3 class='modal-title' id='myModalLabel" + [i] + "'>" + students[i].name + "'s Point Breakdown" + "</h3>" +
+                    "</div>" +
+                    "<div class='modal-body'>" +
+                      "<div>" + "Litmos Chapters Complete (20 points each): " + students[i].litmoschpcom + "</div>" +
+                      "<div>" + "Class Attendance (10 points each class): " + students[i].classatt + "</div>" +
+                      // "<div>" + "Hackathons Attended (10 points each event): " + "Hackathons Attended: " + students[i].hackatt + "</div>" + 
+                      "<div>" + "Office Hours Attendance (10 points): " + students[i].officehouratt + "</div>" + 
+                      "<div>" + "Bonus Projects Complete (10 points each): " + students[i].bonusprojcom + "</div>" + 
+                      "<div>" + "Portfolio Complete (50 points): " + students[i].portfoliocom + "</div>" + 
+                      "<div>" + "Profile Projects Complete (15 points each): " + students[i].portfolioprojscom + "</div>" + 
+                      "<div>" + "Headfirst HTML & CSS Complete (50 points): " + students[i].headfirsthtml + "</div>" + 
+                      "<div>" + "Head First Javascript Programming Complete (50 points): " + students[i].headfirstjavascript + "</div>" + 
+                      "<div>" + "Resume Complete (10 points): " + students[i].resume + "</div>" + 
+                      "<div>" + "Cover Letter Complete (20 points): " + students[i].coverletter + "</div>" + 
+                      "<div>" + "LinkedIn Profile Complete (10 points): " + students[i].linkedin + "</div>" + 
+                      "<div>" + "Phone Interviews (25 points each): " + students[i].phoneinterview + "</div>" + 
+                      "<div>" + "In-Person Interviews (50 points each): " + students[i].inpersoninterview + "</div>" + 
+                      "<div>" + "Hired (100 points): " + students[i].hired + "</div>" + 
+                      "<div>" + "Extra Points (dished out by tacher): " + students[i].extrapoints + "</div>" +
+                    "</div>" +
+                    "<div class='modal-footer'>" +
+                    "<h3 style='display:inline'>Total Points: " + total +  
+                    "</h3></div>" +
+                  "</div>" +
+                "</div>" +
+              "</div>")
           });
         }
       });
@@ -70,7 +80,7 @@
       $('table').tablesorter({
         sortList: [[1,1]],
         })
-    }, 1000);
+    }, 500);
 
   </script>
 </body>

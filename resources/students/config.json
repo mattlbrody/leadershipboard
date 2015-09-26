@@ -9,13 +9,21 @@
 			"id": "name",
 			"order": 0
 		},
+		"cohort": {
+			"name": "cohort",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "cohort",
+			"order": 1
+		},
 		"litmoschpcom": {
 			"name": "litmoschpcom",
 			"type": "number",
 			"typeLabel": "number",
 			"required": false,
 			"id": "litmoschpcom",
-			"order": 1
+			"order": 2
 		},
 		"classatt": {
 			"name": "classatt",
@@ -23,7 +31,7 @@
 			"typeLabel": "number",
 			"required": false,
 			"id": "classatt",
-			"order": 2
+			"order": 3
 		},
 		"hackatt": {
 			"name": "hackatt",
@@ -31,7 +39,7 @@
 			"typeLabel": "number",
 			"required": false,
 			"id": "hackatt",
-			"order": 3
+			"order": 4
 		},
 		"officehouratt": {
 			"name": "officehouratt",
@@ -39,7 +47,7 @@
 			"typeLabel": "number",
 			"required": false,
 			"id": "officehouratt",
-			"order": 4
+			"order": 5
 		},
 		"bonusprojcom": {
 			"name": "bonusprojcom",
@@ -47,7 +55,7 @@
 			"typeLabel": "number",
 			"required": false,
 			"id": "bonusprojcom",
-			"order": 5
+			"order": 6
 		},
 		"portfoliocom": {
 			"name": "portfoliocom",
@@ -55,7 +63,7 @@
 			"typeLabel": "number",
 			"required": false,
 			"id": "portfoliocom",
-			"order": 6
+			"order": 7
 		},
 		"portfolioprojscom": {
 			"name": "portfolioprojscom",
@@ -63,7 +71,7 @@
 			"typeLabel": "number",
 			"required": false,
 			"id": "portfolioprojscom",
-			"order": 7
+			"order": 8
 		},
 		"headfirsthtml": {
 			"name": "headfirsthtml",
@@ -71,7 +79,7 @@
 			"typeLabel": "number",
 			"required": false,
 			"id": "headfirsthtml",
-			"order": 8
+			"order": 9
 		},
 		"headfirstjavascript": {
 			"name": "headfirstjavascript",
@@ -79,7 +87,7 @@
 			"typeLabel": "number",
 			"required": false,
 			"id": "headfirstjavascript",
-			"order": 9
+			"order": 10
 		},
 		"resume": {
 			"name": "resume",
@@ -87,7 +95,7 @@
 			"typeLabel": "number",
 			"required": false,
 			"id": "resume",
-			"order": 10
+			"order": 11
 		},
 		"coverletter": {
 			"name": "coverletter",
@@ -95,7 +103,7 @@
 			"typeLabel": "number",
 			"required": false,
 			"id": "coverletter",
-			"order": 11
+			"order": 12
 		},
 		"linkedin": {
 			"name": "linkedin",
@@ -103,7 +111,7 @@
 			"typeLabel": "number",
 			"required": false,
 			"id": "linkedin",
-			"order": 12
+			"order": 13
 		},
 		"phoneinterview": {
 			"name": "phoneinterview",
@@ -111,7 +119,7 @@
 			"typeLabel": "number",
 			"required": false,
 			"id": "phoneinterview",
-			"order": 13
+			"order": 14
 		},
 		"inpersoninterview": {
 			"name": "inpersoninterview",
@@ -119,7 +127,7 @@
 			"typeLabel": "number",
 			"required": false,
 			"id": "inpersoninterview",
-			"order": 14
+			"order": 15
 		},
 		"hired": {
 			"name": "hired",
@@ -127,7 +135,7 @@
 			"typeLabel": "number",
 			"required": false,
 			"id": "hired",
-			"order": 15
+			"order": 16
 		},
 		"extrapoints": {
 			"name": "extrapoints",
@@ -135,7 +143,7 @@
 			"typeLabel": "number",
 			"required": false,
 			"id": "extrapoints",
-			"order": 16
+			"order": 17
 		},
 		"totalpoints": {
 			"name": "totalpoints",
@@ -143,7 +151,7 @@
 			"typeLabel": "number",
 			"required": false,
 			"id": "totalpoints",
-			"order": 17
+			"order": 18
 		}
 	}
 }

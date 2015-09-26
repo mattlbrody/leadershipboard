@@ -11,7 +11,9 @@
 
     <form id="createNewStudentForm">
       <label for="studentName">Student Name:</label>
-      <input type="text" id="studentName" />
+      <input type="text" id="studentName" required/>
+      <label for="cohort">Cohort:</label>
+      <input type="text" id="cohort" required/>
       <button type="submit" class="btn" id="newStudent">New Student</button>
     </form>
 
@@ -23,6 +25,7 @@
         <thead>
           <tr>
             <th>name</th>
+            <th>cohort</th>
             <th>litmos chapters complete</th>
             <th>class attendence</th>
             <th>hack attendence</th>
@@ -59,7 +62,8 @@
       //Creates new student in database
       $('#createNewStudentForm').submit(function() {
         var studentName = $('#studentName').val();
-        dpd.students.post({"name":studentName,"litmoschpcom":0,"classatt":0,"hackatt":0,"officehouratt":0,"bonusprojcom":0,"portfoliocom":0,"portfolioprojscom":0,"headfirsthtml":0,"headfirstjavascript":0,"resume":0,"coverletter":0,"linkedin":0,"phoneinterview":0,"inpersoninterview":0,"hired":0,"extrapoints":0,"totalpoints":0}, function(result, err) {
+        var cohort = $('#cohort').val();
+        dpd.students.post({"name":studentName, "cohort":cohort, "litmoschpcom":0,"classatt":0,"hackatt":0,"officehouratt":0,"bonusprojcom":0,"portfoliocom":0,"portfolioprojscom":0,"headfirsthtml":0,"headfirstjavascript":0,"resume":0,"coverletter":0,"linkedin":0,"phoneinterview":0,"inpersoninterview":0,"hired":0,"extrapoints":0,"totalpoints":0}, function(result, err) {
           if(err) return console.log(err);
           console.log(result, result.id);
         });
@@ -75,7 +79,8 @@
             var total = students[i].litmoschpcom + students[i].classatt + students[i].hackatt + students[i].officehouratt + students[i].bonusprojcom + students[i].portfoliocom + students[i].portfolioprojscom + students[i].headfirsthtml + students[i].headfirstjavascript + students[i].resume + students[i].coverletter + students[i].linkedin + students[i].phoneinterview + students[i].inpersoninterview + students[i].hired + students[i].extrapoints
             $("#tablebody").append("<tr id='studentRow" + [i] +"'></tr>")
             $("#studentRow" + [i]).append(
-              "<td>" + students[i].name + "</td>" + 
+              "<td>" + students[i].name + "</td>" +
+              "<td>" + students[i].cohort + "</td>" +  
               "<td>" + students[i].litmoschpcom + "<br><button onclick='litmoschpcom()'>add</button></td>" + "</td>" + 
               "<td>" + students[i].classatt + "<br><button>add</button></td>" + "</td>" +
               "<td>" + students[i].hackatt + "<br><button>add</button></td>" + "</td>" +
