@@ -36,7 +36,32 @@ h1 {
 	text-align: left;
 }
 
+::-webkit-input-placeholder {
+   color: black;
+   text-align:center;
+}
 
+:-moz-placeholder { /* Firefox 18- */
+   color: black;  
+   text-align:center;
+}
 
+::-moz-placeholder {  /* Firefox 19+ */
+   color: black; 
+   text-align:center; 
+}
+
+:-ms-input-placeholder {  
+   color: black;  
+   text-align:center;
+}
+
+#tablebody input {
+	width:40px;
+}
+
+#tablebody tr:first-child {
+	width:100px;
+}
 
 

@@ -20,35 +20,38 @@
     <button class="btn" id="logout-btn" style="float:right">Logout</button>
     <br>
 
-    <div class="table-responsive">
-      <table id="myTable" class="table table-bordered table-condensed tablesorter">
-        <thead>
-          <tr>
-            <th>name</th>
-            <th>cohort</th>
-            <th>litmos chapters complete</th>
-            <th>class attendence</th>
-            <th>hack attendence</th>
-            <th>office hour attendence</th>
-            <th>bonus projects complete</th>
-            <th>portfolio complete</th>
-            <th>portfolio projects completed</th>
-            <th>Headfirst HTML &amp; CSS complete</th>
-            <th>Headfirst Javscript Programming complete</th>
-            <th>Resume complete</th>
-            <th>Cover letter complete</th>
-            <th>linkedin profile 100%</th>
-            <th>phone interview</th>
-            <th>in-person interview</th>
-            <th>hired</th>
-            <th>extra points</th>
-            <th>total points</th>
-          </tr>
-        </thead>
-        <tbody id="tablebody"  class="text-center">
-        </tbody>
-      </table>
-    </div>
+    <form id="updatepoints">
+      <div class="table-responsive">
+        <table id="myTable" class="table table-bordered table-condensed tablesorter">
+          <thead>
+            <tr>
+              <th>name</th>
+              <th>cohort</th>
+              <th>litmos chapters complete</th>
+              <th>class attendence</th>
+              <th>hack attendence</th>
+              <th>office hour attendence</th>
+              <th>bonus projects complete</th>
+              <th>portfolio complete</th>
+              <th>portfolio projects completed</th>
+              <th>Headfirst HTML &amp; CSS complete</th>
+              <th>Headfirst Javscript Programming complete</th>
+              <th>Resume complete</th>
+              <th>Cover letter complete</th>
+              <th>linkedin profile 100%</th>
+              <th>phone interview</th>
+              <th>in-person interview</th>
+              <th>hired</th>
+              <th>extra points</th>
+              <th>total points</th>
+            </tr>
+          </thead>
+          <tbody id="tablebody"  class="text-center">
+          </tbody>
+        </table>
+      </div>
+      <button type="submit" class="btn" id="update">Update Points</button>
+    </form>  
   </div>
   <script type="text/javascript" src="/js/lib/jquery.js"></script>
   <script type="text/javascript" src="/js/jquery.tablesorter.js"></script>
@@ -69,6 +72,8 @@
         });
       })
 
+     
+
       
 
       dpd.students.get(function (result, err) {
@@ -81,32 +86,48 @@
             $("#studentRow" + [i]).append(
               "<td>" + students[i].name + "</td>" +
               "<td>" + students[i].cohort + "</td>" +  
-              "<td>" + students[i].litmoschpcom + "<br><button onclick='litmoschpcom()'>add</button></td>" + "</td>" + 
-              "<td>" + students[i].classatt + "<br><button>add</button></td>" + "</td>" +
-              "<td>" + students[i].hackatt + "<br><button>add</button></td>" + "</td>" +
-              "<td>" + students[i].officehouratt + "<br><button>add</button></td>" + "</td>" +
-              "<td>" + students[i].bonusprojcom + "<br><button>add</button></td>" + "</td>" +
-              "<td>" + students[i].portfoliocom + "<br><button>add</button></td>" + "</td>" +
-              "<td>" + students[i].portfolioprojscom + "<br><button>add</button></td>" + "</td>" +
-              "<td>" + students[i].headfirsthtml + "<br><button>add</button></td>" + "</td>" +
-              "<td>" + students[i].headfirstjavascript + "<br><button>add</button></td>" + "</td>" +
-              "<td>" + students[i].resume + "<br><button>add</button></td>" + "</td>" +
-              "<td>" + students[i].coverletter + "<br><button>add</button></td>" + "</td>" +
-              "<td>" + students[i].linkedin + "<br><button>add</button></td>" + "</td>" +
-              "<td>" + students[i].phoneinterview + "<br><button>add</button></td>" + "</td>" +
-              "<td>" + students[i].inpersoninterview + "<br><button>add</button></td>" + "</td>" +
-              "<td>" + students[i].hired + "<br><button>add</button></td>" + "</td>" +
-              "<td>" + students[i].extrapoints + "<br><button>add</button></td>" + "</td>" +
+              "<td><input id='litmoschpcom" + [i] + "' placeholder='" + students[i].litmoschpcom + "'></input></td>" + 
+              "<td><input id='classatt" + [i] + "' placeholder='" + students[i].classatt + "'</input></td>" +
+              "<td><input id='hackatt" + [i] + "' placeholder='" + students[i].hackatt + "'</input></td>" +
+              "<td><input id='officehouratt" + [i] + "' placeholder='" + students[i].officehouratt + "'</input></td>" +
+              "<td><input id='bonusprojcom" + [i] + "' placeholder='" + students[i].bonusprojcom + "'</input></td>" +
+              "<td><input id='portfoliocom" + [i] + "' placeholder='" + students[i].portfoliocom + "'</input></td>" +
+              "<td><input id='portfolioprojscom" + [i] + "' placeholder='" + students[i].portfolioprojscom + "'</input></td>" +
+              "<td><input id='headfirsthtml" + [i] + "' placeholder='" + students[i].headfirsthtml + "'</input></td>" +
+              "<td><input id='headfirstjavascript" + [i] + "' placeholder='" + students[i].headfirstjavascript + "'</input></td>" +
+              "<td><input id='resume" + [i] + "' placeholder='" + students[i].resume + "'</input></td>" +
+              "<td><input id='coverletter" + [i] + "' placeholder='" + students[i].coverletter + "'<input></td>" +
+              "<td><input id='linkedin" + [i] + "' placeholder='" + students[i].linkedin + "'<input></td>" +
+              "<td><input id='phoneinterview" + [i] + "' placeholder='" + students[i].phoneinterview + "'<input></td>" +
+              "<td><input id='inpersoninterview" + [i] + "' placeholder='" + students[i].inpersoninterview + "'<input></td>" +
+              "<td><input id='hired" + [i] + "' placeholder='" + students[i].hired + "'<input></td>" +
+              "<td><input id='extrapoints" + [i] + "' placeholder='" + students[i].extrapoints + "'<input></td>" +
               "<td>" + total + "</td>"
               )
-              function litmoschpcom() {
-                console.log("test")
-                var litmoschpcom = students[i].litmoschpcom + 20
-                dpd.students.put(id, {"litmoschpcom": litmoschpcom}, function(result, err) {
-                  if(err) return console.log(err);
-                });
-              }
+      //Creates new student in database
+      $('#updatepoints').submit(function() {
+        var litmoschpcom = $('#litmoschpcom').val();
+        var classatt = $('#classatt').val();
+        var hackatt = $('#hackatt').val();
+        var officehouratt = $('#officehouratt').val();
+        var bonusprojcom = $('#bonusprojcom').val();
+        var portfoliocom = $('#portfoliocom').val();
+        var portfolioprojscom = $('#portfolioprojscom').val();
+        var headfirsthtml = $('#headfirsthtml').val();
+        var headfirstjavascript = $('#headfirstjavascript').val();
+        var resume = $('#resume').val();
+        var coverletter = $('#coverletter').val();
+        var linkedin = $('#linkedin').val();
+        var phoneinterview = $('#phoneinterview').val();
+        var inpersoninterview = $('#inpersoninterview').val();
+        var hired = $('#hired').val();
+        var extrapoints = $('#extrapoints').val();
 
+        dpd.students.put(id, {"name":studentName, "cohort":cohort, "litmoschpcom":litmoschpcom,"classatt":classatt,"hackatt":hackatt,"officehouratt":officehouratt,"bonusprojcom":bonusprojcom,"portfoliocom":portfoliocom,"portfolioprojscom":portfolioprojscom,"headfirsthtml":headfirsthtml,"headfirstjavascript":headfirstjavascript,"resume":resume,"coverletter":coverletter,"linkedin":linkedin,"phoneinterview":phoneinterview,"inpersoninterview":inpersoninterview,"hired":hired,"extrapoints":extrapoints,"totalpoints":total}, function(result, err) {
+          if(err) return console.log(err);
+          console.log(result, result.id);
+        });
+      })
           });
         }
       });
@@ -124,7 +145,7 @@
       $('table').tablesorter({
         sortList: [[0,0]],
         })
-    }, 1000);
+    }, 500);
 
   </script>
 </body>
