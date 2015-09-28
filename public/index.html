@@ -17,6 +17,7 @@
         <thead>
           <tr>
             <th>NAME</th>
+            <th>COHORT</th>
             <th>TOTAL POINTS</th>
           </tr>
         </thead>
@@ -39,7 +40,7 @@
             var total = students[i].litmoschpcom + students[i].classatt + students[i].hackatt + students[i].officehouratt + students[i].bonusprojcom + students[i].portfoliocom + students[i].portfolioprojscom + students[i].headfirsthtml + students[i].headfirstjavascript + students[i].resume + students[i].coverletter + students[i].linkedin + students[i].phoneinterview + students[i].inpersoninterview + students[i].hired + students[i].extrapoints
             $("#tablebody").append("<tr role='button' data-toggle='modal' id='studentRow" + [i] + "' data-target='#myModal" + [i] + "'></tr>")
             
-            $("#studentRow" + [i]).append("<td>" + students[i].name + "</td>" + "<td>" + total + "</td>")
+            $("#studentRow" + [i]).append("<td>" + students[i].name + "</td>" + "<td>" + students[i].cohort + "</td>" + "<td>" + total + "</td>")
 
             $("#studentRow" + [i]).append(
               "<div style='text-align:right' class='modal fade' data-backdrop='static' id='myModal" + [i] + "' role='dialog' aria-labelledby='myModalLabel" + [i] + "'>" +
@@ -78,7 +79,7 @@
 
     setTimeout(function() {
       $('table').tablesorter({
-        sortList: [[1,1]],
+        sortList: [[2,2]],
         })
     }, 500);
 
