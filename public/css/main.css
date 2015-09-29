@@ -3,7 +3,10 @@ body {
 }
 table {
 	border-collapse:collapse;
+	table-layout:fixed;
 }
+table tr { height:1em;  }
+	td { overflow:hidden;white-space:nowrap;  }
 th {
 	font-size:30px;
 	background-color:black;
@@ -62,6 +65,50 @@ h1 {
 
 #tablebody tr:first-child {
 	width:100px;
+}
+
+#updatepoints tr {
+	font-size:15px;
+}
+#updatepoints th {
+	font-size:15px;
+}
+
+@media (max-width: 744px) {
+	.header {
+		font-size:20px;
+	}
+	tbody tr td {
+		font-size: 15px;
+	}
+}
+
+@media (max-width: 500px) {
+	.header {
+		font-size:18px;
+	}
+	tbody tr td {
+		font-size: 15px;
+	}
+}
+
+@media (max-width: 479px) {
+	.header {
+		font-size:15px;
+	}
+	tbody tr td {
+		font-size: 12px;
+	}
+	
+}
+
+@media (max-width: 385px) {
+	.header {
+		font-size:12px;
+	}
+	tbody tr td {
+		font-size: 10px;
+	}
 }
 
 

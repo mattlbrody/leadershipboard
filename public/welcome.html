@@ -20,6 +20,7 @@
 
     <button class="btn" id="logout-btn" style="float:right">Logout</button>
     <br>
+    <br>
 
     <form id="updatepoints">
       <div class="table-responsive">
@@ -29,20 +30,20 @@
               <th>name</th>
               <th>cohort</th>
               <th>update row</th>
-              <th>litmos chapters complete</th>
-              <th>class attendence</th>
+              <th>litmos chapters fin</th>
+              <th>class attend</th>
               <!-- <th>hack attendence</th> -->
-              <th>office hour attendence</th>
-              <th>bonus projects complete</th>
-              <th>portfolio complete</th>
-              <th>portfolio projects completed</th>
-              <th>Headfirst HTML &amp; CSS complete</th>
-              <th>Headfirst Javscript Programming complete</th>
-              <th>Resume complete</th>
-              <th>Cover letter complete</th>
+              <th>office hour attend</th>
+              <th>bonus projects fin</th>
+              <th>portfolio fin</th>
+              <th>portfolio projects fin</th>
+              <th>Headfirst HTML &amp; CSS fin</th>
+              <th>Headfirst Javscript fin</th>
+              <th>Resume fin</th>
+              <th>Cover letter fin</th>
               <th>linkedin profile 100%</th>
-              <th>phone interview</th>
-              <th>in-person interview</th>
+              <th>phone inter view</th>
+              <th>in-person inter view</th>
               <th>hired</th>
               <th>extra points</th>
               <th>total points</th>
@@ -74,7 +75,7 @@
         });
       })
 
-
+      //global to create student id to be used in the put later on
       studentId = []
 
      //retreive student data
@@ -91,7 +92,7 @@
             $("#studentRow" + [i]).append(
               "<td>" + students[i].name + "</td>" +
               "<td>" + students[i].cohort + "</td>" + 
-              "<td> <button type='button' class='btn' id='update" + [i] +"'>Update Points</button> </td>" + 
+              "<td> <button type='button' class='btn' id='update" + [i] +"'>Update</button> </td>" + 
               "<td><input id='litmoschpcom" + [i] + "' placeholder='" + students[i].litmoschpcom + "' value='" + students[i].litmoschpcom + "'></input></td>" + 
               "<td><input id='classatt" + [i] + "' placeholder='" + students[i].classatt + "' value='" + students[i].classatt + "'</input></td>" +
               // "<td><input id='hackatt" + [i] + "' placeholder='" + students[i].hackatt + "' value='" + students[i].hackatt + "'</input></td>" +
@@ -112,10 +113,11 @@
             )
             
           });
+
+          //on click event that updates the database
           $('button').click(function() {
               var index = this.id
               var removechar = index.replace("update", "")
-              console.log(removechar)
               var thisStudentId = studentId[removechar]
               var litmoschpcom = $('#litmoschpcom' + removechar).val()
               var classatt = $('#classatt' + removechar).val()
@@ -139,7 +141,7 @@
                   console.log(result, result.id);
               })
             })
-        }
+          }
       });
 
       
