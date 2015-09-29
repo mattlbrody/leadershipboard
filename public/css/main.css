@@ -94,6 +94,15 @@ h1 {
 	tbody tr td {
 		font-size: 15px;
 	}
+	div h3 {
+		font-size:20px;
+	}
+	.modal-body div {
+		font-size:16px;
+	}
+	h1 {
+		font-size:28px;
+	}
 }
 
 @media (max-width: 500px) {
@@ -103,17 +112,30 @@ h1 {
 	tbody tr td {
 		font-size: 15px;
 	}
+	h1 {
+		font-size:28px;
+	}
 }
 
-@media (max-width: 479px) {
+@media (max-width: 485px) {
 	.header {
 		font-size:15px;
 	}
 	tbody tr td {
 		font-size: 12px;
 	}
+	div h3 {
+		font-size:18px;
+	}
+	.modal-body div {
+		font-size:12px;
+	}
+	h1 {
+		font-size:22px;
+	}
 	
 }
+
 
 @media (max-width: 385px) {
 	.header {
@@ -121,6 +143,15 @@ h1 {
 	}
 	tbody tr td {
 		font-size: 10px;
+	}
+	div h3 {
+		font-size:15px;
+	}
+	.modal-body div {
+		font-size:10px;
+	}
+	h1 {
+		font-size:17px;
 	}
 }
 
