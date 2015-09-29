@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Deployd login form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
   <link rel="stylesheet" href="/css/main.css" />
 </head>
@@ -27,9 +28,10 @@
             <tr>
               <th>name</th>
               <th>cohort</th>
+              <th>update row</th>
               <th>litmos chapters complete</th>
               <th>class attendence</th>
-              <th>hack attendence</th>
+              <!-- <th>hack attendence</th> -->
               <th>office hour attendence</th>
               <th>bonus projects complete</th>
               <th>portfolio complete</th>
@@ -50,7 +52,7 @@
           </tbody>
         </table>
       </div>
-      <button type="submit" class="btn" id="update">Update Points</button>
+      
     </form>  
   </div>
   <script type="text/javascript" src="/js/lib/jquery.js"></script>
@@ -72,75 +74,87 @@
         });
       })
 
-     
 
-      
+      studentId = []
 
+     //retreive student data
       dpd.students.get(function (result, err) {
         if(err) return console.log(err);
         var students = result;
+        
+        //loops through and creates all student info in table
         for(i = 0; i < students.length; i++) {
           $(students[i]).each(function(){
+            studentId.push(students[i].id)
             var total = students[i].litmoschpcom + students[i].classatt + students[i].hackatt + students[i].officehouratt + students[i].bonusprojcom + students[i].portfoliocom + students[i].portfolioprojscom + students[i].headfirsthtml + students[i].headfirstjavascript + students[i].resume + students[i].coverletter + students[i].linkedin + students[i].phoneinterview + students[i].inpersoninterview + students[i].hired + students[i].extrapoints
             $("#tablebody").append("<tr id='studentRow" + [i] +"'></tr>")
             $("#studentRow" + [i]).append(
               "<td>" + students[i].name + "</td>" +
-              "<td>" + students[i].cohort + "</td>" +  
-              "<td><input id='litmoschpcom" + [i] + "' placeholder='" + students[i].litmoschpcom + "'></input></td>" + 
-              "<td><input id='classatt" + [i] + "' placeholder='" + students[i].classatt + "'</input></td>" +
-              "<td><input id='hackatt" + [i] + "' placeholder='" + students[i].hackatt + "'</input></td>" +
-              "<td><input id='officehouratt" + [i] + "' placeholder='" + students[i].officehouratt + "'</input></td>" +
-              "<td><input id='bonusprojcom" + [i] + "' placeholder='" + students[i].bonusprojcom + "'</input></td>" +
-              "<td><input id='portfoliocom" + [i] + "' placeholder='" + students[i].portfoliocom + "'</input></td>" +
-              "<td><input id='portfolioprojscom" + [i] + "' placeholder='" + students[i].portfolioprojscom + "'</input></td>" +
-              "<td><input id='headfirsthtml" + [i] + "' placeholder='" + students[i].headfirsthtml + "'</input></td>" +
-              "<td><input id='headfirstjavascript" + [i] + "' placeholder='" + students[i].headfirstjavascript + "'</input></td>" +
-              "<td><input id='resume" + [i] + "' placeholder='" + students[i].resume + "'</input></td>" +
-              "<td><input id='coverletter" + [i] + "' placeholder='" + students[i].coverletter + "'<input></td>" +
-              "<td><input id='linkedin" + [i] + "' placeholder='" + students[i].linkedin + "'<input></td>" +
-              "<td><input id='phoneinterview" + [i] + "' placeholder='" + students[i].phoneinterview + "'<input></td>" +
-              "<td><input id='inpersoninterview" + [i] + "' placeholder='" + students[i].inpersoninterview + "'<input></td>" +
-              "<td><input id='hired" + [i] + "' placeholder='" + students[i].hired + "'<input></td>" +
-              "<td><input id='extrapoints" + [i] + "' placeholder='" + students[i].extrapoints + "'<input></td>" +
+              "<td>" + students[i].cohort + "</td>" + 
+              "<td> <button type='button' class='btn' id='update" + [i] +"'>Update Points</button> </td>" + 
+              "<td><input id='litmoschpcom" + [i] + "' placeholder='" + students[i].litmoschpcom + "' value='" + students[i].litmoschpcom + "'></input></td>" + 
+              "<td><input id='classatt" + [i] + "' placeholder='" + students[i].classatt + "' value='" + students[i].classatt + "'</input></td>" +
+              // "<td><input id='hackatt" + [i] + "' placeholder='" + students[i].hackatt + "' value='" + students[i].hackatt + "'</input></td>" +
+              "<td><input id='officehouratt" + [i] + "' placeholder='" + students[i].officehouratt + "' value='" + students[i].officehouratt + "'</input></td>" +
+              "<td><input id='bonusprojcom" + [i] + "' placeholder='" + students[i].bonusprojcom + "' value='" + students[i].bonusprojcom + "'</input></td>" +
+              "<td><input id='portfoliocom" + [i] + "' placeholder='" + students[i].portfoliocom + "' value='" + students[i].portfoliocom + "'</input></td>" +
+              "<td><input id='portfolioprojscom" + [i] + "' placeholder='" + students[i].portfolioprojscom + "' value='" + students[i].portfolioprojscom + "'</input></td>" +
+              "<td><input id='headfirsthtml" + [i] + "' placeholder='" + students[i].headfirsthtml + "' value='" + students[i].headfirsthtml + "'</input></td>" +
+              "<td><input id='headfirstjavascript" + [i] + "' placeholder='" + students[i].headfirstjavascript + "' value='" + students[i].headfirstjavascript + "'</input></td>" +
+              "<td><input id='resume" + [i] + "' placeholder='" + students[i].resume + "' value='" + students[i].resume + "'</input></td>" +
+              "<td><input id='coverletter" + [i] + "' placeholder='" + students[i].coverletter + "' value='" + students[i].coverletter + "'<input></td>" +
+              "<td><input id='linkedin" + [i] + "' placeholder='" + students[i].linkedin + "' value='" + students[i].linkedin + "'<input></td>" +
+              "<td><input id='phoneinterview" + [i] + "' placeholder='" + students[i].phoneinterview + "' value='" + students[i].phoneinterview + "'<input></td>" +
+              "<td><input id='inpersoninterview" + [i] + "' placeholder='" + students[i].inpersoninterview + "' value='" + students[i].inpersoninterview + "'<input></td>" +
+              "<td><input id='hired" + [i] + "' placeholder='" + students[i].hired + "' value='" + students[i].hired + "'<input></td>" +
+              "<td><input id='extrapoints" + [i] + "' placeholder='" + students[i].extrapoints + "' value='" + students[i].extrapoints + "'<input></td>" +
               "<td>" + total + "</td>"
-              )
-      //Creates new student in database
-      $('#updatepoints').submit(function() {
-        var litmoschpcom = $('#litmoschpcom').val();
-        var classatt = $('#classatt').val();
-        var hackatt = $('#hackatt').val();
-        var officehouratt = $('#officehouratt').val();
-        var bonusprojcom = $('#bonusprojcom').val();
-        var portfoliocom = $('#portfoliocom').val();
-        var portfolioprojscom = $('#portfolioprojscom').val();
-        var headfirsthtml = $('#headfirsthtml').val();
-        var headfirstjavascript = $('#headfirstjavascript').val();
-        var resume = $('#resume').val();
-        var coverletter = $('#coverletter').val();
-        var linkedin = $('#linkedin').val();
-        var phoneinterview = $('#phoneinterview').val();
-        var inpersoninterview = $('#inpersoninterview').val();
-        var hired = $('#hired').val();
-        var extrapoints = $('#extrapoints').val();
-
-        dpd.students.put(id, {"name":studentName, "cohort":cohort, "litmoschpcom":litmoschpcom,"classatt":classatt,"hackatt":hackatt,"officehouratt":officehouratt,"bonusprojcom":bonusprojcom,"portfoliocom":portfoliocom,"portfolioprojscom":portfolioprojscom,"headfirsthtml":headfirsthtml,"headfirstjavascript":headfirstjavascript,"resume":resume,"coverletter":coverletter,"linkedin":linkedin,"phoneinterview":phoneinterview,"inpersoninterview":inpersoninterview,"hired":hired,"extrapoints":extrapoints,"totalpoints":total}, function(result, err) {
-          if(err) return console.log(err);
-          console.log(result, result.id);
-        });
-      })
+            )
+            
           });
+          $('button').click(function() {
+              var index = this.id
+              var removechar = index.replace("update", "")
+              console.log(removechar)
+              var thisStudentId = studentId[removechar]
+              var litmoschpcom = $('#litmoschpcom' + removechar).val()
+              var classatt = $('#classatt' + removechar).val()
+              // var hackatt = $('#hackatt' + removechar).val();
+              var officehouratt = $('#officehouratt' + removechar).val()
+              var bonusprojcom = $('#bonusprojcom' + removechar).val()
+              var portfoliocom = $('#portfoliocom' + removechar).val()
+              var portfolioprojscom = $('#portfolioprojscom' + removechar).val()
+              var headfirsthtml = $('#headfirsthtml' + removechar).val()
+              var headfirstjavascript = $('#headfirstjavascript' + removechar).val()
+              var resume = $('#resume' + removechar).val()
+              var coverletter = $('#coverletter' + removechar).val()
+              var linkedin = $('#linkedin' + removechar).val()
+              var phoneinterview = $('#phoneinterview' + removechar).val()
+              var inpersoninterview = $('#inpersoninterview' + removechar).val()
+              var hired = $('#hired' + removechar).val()
+              var extrapoints = $('#extrapoints' + removechar).val()
+
+              dpd.students.put(thisStudentId, {"litmoschpcom":litmoschpcom,"classatt":classatt,"officehouratt":officehouratt,"bonusprojcom":bonusprojcom,"portfoliocom":portfoliocom,"portfolioprojscom":portfolioprojscom,"headfirsthtml":headfirsthtml,"headfirstjavascript":headfirstjavascript,"resume":resume,"coverletter":coverletter,"linkedin":linkedin,"phoneinterview":phoneinterview,"inpersoninterview":inpersoninterview,"hired":hired,"extrapoints":extrapoints}, function(result, err) {
+                  if(err) return console.log(err);
+                  console.log(result, result.id);
+              })
+            })
         }
       });
+
       
     });
+    
+    
 
+    //logout
     $('#logout-btn').click(function() {
       dpd.users.logout(function(res, err) {
         location.href = "/";
       });
     });
 
-
+    //setTimeout to delay loadtime so sorting works
     setTimeout(function() {
       $('table').tablesorter({
         sortList: [[0,0]],
