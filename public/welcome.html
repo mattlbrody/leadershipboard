@@ -66,19 +66,10 @@
 
     dpd.users.me(function(user) {
 
-      //Creates new student in database
-      $('#createNewStudentForm').submit(function() {
-        var studentName = $('#studentName').val();
-        var cohort = $('#cohort').val();
-        dpd.students.post({"name":studentName, "cohort":cohort, "litmoschpcom":0,"classatt":0,"hackatt":0,"officehouratt":0,"bonusprojcom":0,"portfoliocom":0,"portfolioprojscom":0,"headfirsthtml":0,"headfirstjavascript":0,"resume":0,"coverletter":0,"linkedin":0,"phoneinterview":0,"inpersoninterview":0,"hired":0,"extrapoints":0,"totalpoints":0}, function(result, err) {
-          if(err) return console.log(err);
-          console.log(result, result.id);
-        });
-      })
+      
 
       //global to create student id to be used in the put later on
       studentId = []
-
      //retreive student data
       dpd.students.get(function (result, err) {
         if(err) return console.log(err);
@@ -93,7 +84,7 @@
             $("#studentRow" + [i]).append(
               "<td>" + students[i].name + "</td>" +
               "<td>" + students[i].cohort + "</td>" + 
-              "<td> <button type='button' class='btn' id='update" + [i] +"'>Update</button> </td>" + 
+              "<td> <button type='button' class='btn update' id='update" + [i] +"'>Update</button> </td>" + 
               "<td><input id='litmoschpcom" + [i] + "' placeholder='" + students[i].litmoschpcom + "' value='" + students[i].litmoschpcom + "'></input></td>" + 
               "<td><input id='classatt" + [i] + "' placeholder='" + students[i].classatt + "' value='" + students[i].classatt + "'</input></td>" +
               // "<td><input id='hackatt" + [i] + "' placeholder='" + students[i].hackatt + "' value='" + students[i].hackatt + "'</input></td>" +
@@ -116,7 +107,7 @@
           });
 
           //on click event that updates the database
-          $('button').click(function() {
+          $('.update').click(function() {
               var index = this.id
               var removechar = index.replace("update", "")
               var thisStudentId = studentId[removechar]
@@ -141,12 +132,24 @@
                   if(err) return console.log(err);
                   console.log(result, result.id);
               })
-            })
-          }
-      });
+          })
+        }
+      })
 
-      
-    });
+        
+    })
+
+    //Creates new student in database
+        $('#createNewStudentForm').submit(function() {
+          var studentName = $('#studentName').val();
+          var cohort = $('#cohort').val();
+          // var newStudentId = 
+          dpd.students.post({"name":studentName, "cohort":cohort, "litmoschpcom":0,"classatt":0,"hackatt":0,"officehouratt":0,"bonusprojcom":0,"portfoliocom":0,"portfolioprojscom":0,"headfirsthtml":0,"headfirstjavascript":0,"resume":0,"coverletter":0,"linkedin":0,"phoneinterview":0,"inpersoninterview":0,"hired":0,"extrapoints":0,"totalpoints":0}, function(result, err) {
+            if(err) return console.log(err);
+            console.log(result, result.id);
+          })
+        })
+    
     
     
 
@@ -162,7 +165,7 @@
       $('table').tablesorter({
         sortList: [[0,0]],
         })
-    }, 500);
+    }, 1000);
 
   </script>
 </body>
