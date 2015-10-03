@@ -10,6 +10,11 @@ th {
 	background-color:black;
 	color:white;
 }
+
+.studentpagehead th {
+	background-color:#1ABC9C;
+}
+
 tr {
 	font-size:20px;
 }
@@ -17,6 +22,14 @@ tr {
 h1 {
 	font-size:40px;
 	text-align:center;
+}
+
+.studentheading {
+	font-family: HelveticaNeue-Thin;
+}
+
+.studentheading span {
+	color:#1ABC9C;
 }
 
 .header {
